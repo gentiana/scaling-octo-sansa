@@ -13,11 +13,15 @@ gem 'jbuilder'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'sprockets'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'guard-rspec'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'childprocess'
 end
 
 group :test do
