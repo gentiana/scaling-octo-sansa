@@ -11,6 +11,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'haml-rails'
+gem 'bootstrap-sass'
+gem 'sprockets'
 
 group :development, :test do
   gem 'rspec-rails'
