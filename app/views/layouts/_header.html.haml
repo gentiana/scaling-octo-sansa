@@ -1,0 +1,10 @@
+%header
+  = link_to "Sample app", root_path
+  %nav
+    %ul
+      - if signed_in?
+        %li= link_to 'Profile', user_path(current_user)
+        %li= link_to 'Settings', '#'
+        %li= link_to 'Sign out', signout_path, method: :delete
+      - else
+        %li= link_to 'Sign in', signin_path

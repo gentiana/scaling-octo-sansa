@@ -4,7 +4,7 @@ RSpec.describe User, :type => :model do
   let(:user) { FactoryGirl.build(:user) }
   subject { user }
   
-  user_methods = [:name, :email]
+  user_methods = [:name, :email, :remember_token]
   
   it "should have specified interface" do
     user_methods.each do |method|
@@ -39,6 +39,11 @@ RSpec.describe User, :type => :model do
   describe "when password is different than confirmation" do
     before { user.password_confirmation = 'asdfgh' }
     it { should_not be_valid }
+  end
+  
+  describe "remember token" do
+    before { user.save }
+    its(:remember_token) { should_not be_blank }
   end
 
 end

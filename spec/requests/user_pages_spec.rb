@@ -16,8 +16,17 @@ RSpec.describe "User Pages" do
         fill_in "Password", with: user.password
         fill_in "Password confirmation", with: user.password
       end
+      
       it "should increment users count" do
         expect { click_button 'Create account' }.to change(User, :count).by(1)
+      end
+      
+      describe "should sign in user" do
+        before { click_button 'Create account' }
+        
+        it { should have_link 'Sign out' }
+        it { should have_title user.name }
+        it { should have_selector '.alert-success', text: 'Welcome' }
       end
     end
     
